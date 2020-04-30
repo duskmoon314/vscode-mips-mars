@@ -1,0 +1,179 @@
+{
+  "$schema": "./tmLanguage.schema.json",
+  "name": "MIPS",
+  "fileTypes": ["s", "mips", "spim", "asm"],
+
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "begin": "(^[ \\t]+)?(?=#)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.whitespace.comment.leading.mips"
+        }
+      },
+      "end": "(?!\\G)",
+      "patterns": [
+        {
+          "begin": "#",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.mips"
+            }
+          },
+          "end": "\\n",
+          "name": "comment.line.number-sign.mips"
+        }
+      ]
+    },
+    {
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.mips"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.mips"
+        }
+      },
+      "name": "string.quoted.double.mips",
+      "patterns": [
+        {
+          "match": "\\\\[rnt\\\\\"]",
+          "name": "constant.character.escape.mips"
+        }
+      ]
+    },
+    {
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.mips"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.mips"
+        }
+      },
+      "name": "string.quoted.single.mips",
+      "patterns": [
+        {
+          "match": "\\\\[rnt\\\\\"]",
+          "name": "constant.character.escape.mips"
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.mips",
+          "match": "\\b(if|while|for|return)\\b"
+        },
+        {
+          "match": "\\b(abs|add[i]?[u]?|and[i]?|div[u]?|mul(o|t)?[u]?|or[i]?|not|nor|sub[i]?[u]?|xor[i]?|sll[v]?|sr[al][v]?)\\b",
+          "name": "support.function.arithmetic.mips"
+        },
+        {
+          "match": "\\b(li|la|lb[u]?|ld(c1)?|[u]?lh[u]?|ll|lui|lw(c1|l|r)?|ulw|s(b|c|d|dc1|h|w(c1|l|r)?)|ush|usw|move|m(t|f)c(0|1)|m(t|f)(hi|lo)|mov(f|n|t|z)?)\\b",
+          "name": "support.function.registers.mips"
+        },
+        {
+          "match": "\\b(b|bcl(f|t){1}|beq[z]?|bg(e|t)(u|z)?|bl(e|t)(u|z)?|bne[z]?|bgezal|bltzal|j[r]?|jal[r]?)\\b",
+          "name": "keyword.control.jump.mips"
+        },
+        {
+          "match": "syscall",
+          "name": "keyword.control.mips"
+        },
+        {
+          "match": "\\.(ascii|asciiz|byte|data|double|float|half|kdata|ktext|space|text|word|set\\s*(noat|at))\\b",
+          "name": "storage.type.mips"
+        },
+        {
+          "match": "\\.(align|extern||globl)\\b",
+          "name": "storage.modifier.mips"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "entity.name.function.label.mips"
+            }
+          },
+          "match": "\\b([A-Za-z0-9_]+):",
+          "name": "meta.function.label.mips"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.mips"
+            }
+          },
+          "match": "(\\$)(0|[2-9]|1[0-9]|2[0-5]|2[89]|3[0-1])\\b",
+          "name": "variable.other.register.usable.by-number.mips"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.mips"
+            }
+          },
+          "match": "(\\$)(t[0-9]|s[0-7])\\b",
+          "name": "variable.other.register.usable.by-name.general.mips"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.mips"
+            }
+          },
+          "match": "(\\$)(zero|v[01]|a[0-3]|t[0-9]|s[0-7]|gp|sp|fp|ra)\\b",
+          "name": "variable.other.register.usable.by-name.mips"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.mips"
+            }
+          },
+          "match": "(\\$)(at|k[01]|1|2[67])\\b",
+          "name": "variable.other.register.reserved.mips"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.variable.mips"
+            }
+          },
+          "match": "(\\$)f([0-9]|1[0-9]|2[0-9]|3[0-1])\\b",
+          "name": "variable.other.register.usable.floating-point.mips"
+        },
+        {
+          "match": "\\b\\d+\\.\\d+\\b",
+          "name": "constant.numeric.float.mips"
+        },
+        {
+          "match": "\\b(\\d+|0(x|X)[a-fA-F0-9]+)\\b",
+          "name": "constant.numeric.integer.mips"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "constant.character.escape.mips",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.mips"
+}

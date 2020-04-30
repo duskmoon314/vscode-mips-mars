@@ -1,0 +1,59 @@
+{
+  "name": "vscode-mips-mars",
+  "displayName": "VSCode MIPS Mars Support",
+  "description": "Provides syntax highlighting and snippets for MIPS assembly language used in Mars",
+  "version": "0.0.1",
+  "publisher": "CampbellHe",
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duskmoon314/vscode-mips-mars"
+  },
+  "bugs": {
+    "url": "https://github.com/duskmoon314/vscode-mips-mars/issues",
+    "email": "campbell.he@icloud.com"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "mips",
+        "aliases": [
+          "MIPS Assembly",
+          "mips"
+        ],
+        "extensions": [
+          ".s",
+          ".mips",
+          ".spim",
+          ".asm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mips",
+        "scopeName": "source.mips",
+        "path": "./syntaxes/mips.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "mips",
+        "path": "./snippets/mips.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
