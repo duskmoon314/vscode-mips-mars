@@ -79,7 +79,7 @@
           "match": "\\b(if|while|for|return)\\b"
         },
         {
-          "match": "\\b(abs|add[i]?[u]?|and[i]?|div[u]?|mul(o|t)?[u]?|or[i]?|not|nor|sub[i]?[u]?|xor[i]?|sll[v]?|sr[al][v]?)\\b",
+          "match": "\\b(abs|add[i]?[u]?|and[i]?|div[u]?|mul(o|t)?[u]?|or[i]?|not|nor|sub[i]?[u]?|xor[i]?|sll[v]?|sr[al][v]?|se(b|h)|s(eq|ne)|s(gt|lt|ge|le)[u]?\\b",
           "name": "support.function.arithmetic.mips"
         },
         {

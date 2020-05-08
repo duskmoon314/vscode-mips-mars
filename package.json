@@ -2,7 +2,7 @@
   "name": "vscode-mips-mars",
   "displayName": "VSCode MIPS Mars Support",
   "description": "Provides syntax highlighting and snippets for MIPS assembly language used in Mars",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "CampbellHe",
   "engines": {
     "vscode": "^1.44.0"

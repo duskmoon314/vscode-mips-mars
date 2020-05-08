@@ -35,6 +35,18 @@
     "description": "open file",
     "scope": "mips"
   },
+  "open file to read": {
+    "prefix": "openFileRead",
+    "body": "la\t\t\t\\$a0, ${1:str}\t\t\t# \\$a0 = $1\nli\t\t\t\\$a1, ${2:0}\t\t\t\t# flag $2\nli\t\t\t\\$a2, ${3:0}\t\t\t\t# mode $3\nli\t\t\t\\$v0, 13\t\t\t\t# syscall open file\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${4:\\$t0}, \\$v0\t\t\t# copy file descriptor",
+    "description": "open file to read",
+    "scope": "mips"
+  },
+  "open file to write": {
+    "prefix": "openFileWrite",
+    "body": "la\t\t\t\\$a0, ${1:str}\t\t\t# \\$a0 = $1\nli\t\t\t\\$a1, ${2:1}\t\t\t\t# flag $2\nli\t\t\t\\$a2, ${3:0}\t\t\t\t# mode $3\nli\t\t\t\\$v0, 13\t\t\t\t# syscall open file\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${4:\\$t0}, \\$v0\t\t\t# copy file descriptor",
+    "description": "open file to write",
+    "scope": "mips"
+  },
   "read file": {
     "prefix": "readFile",
     "body": "move\t\t\\$a0, ${1:\\$t0}\t\t\t# \\$a0 = $1 read $1\nla\t\t\t\\$a1, ${2:buffer}\t\t\t# \\$a1 = $2\nli\t\t\t\\$a2, ${3:4}\t\t\t\t# $3 bytes to read\nli\t\t\t\\$v0, 14\t\t\t\t# syscall read file\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${4:\\$t0}, \\$v0\t\t\t# copy number of bytes read",

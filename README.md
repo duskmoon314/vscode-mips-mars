@@ -23,6 +23,11 @@ Provide snippets and syntax highlight
 
 ## Release Notes
 
+### 0.0.2
+
+- Add `seq`, `sne`, `slt`, `sle`, `sgt`, `sge` to syntax highlighting
+- Add `openFileRead` and `openFileWrite` to snippets
+
 ### 0.0.1
 
 Initial release of vscode-mips-mars
